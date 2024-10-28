@@ -1,0 +1,24 @@
+﻿@page "/BindProperties"
+@using BlazorGuide.Models
+
+<h3> Product - Data Binding</h3>
+Name : @product.Name <br />
+IsActive : @product.IsActive <br />
+Price : @product.Price <br />
+This Product is: @(product.IsActive? "Active" : "InActive") <br />
+
+IsActive : <input type="checkbox" @bind-value="@product.IsActive" /> <br />
+
+Input Price: <input type="number"  @bind-value="@product.Price"  @bind-value:event="oninput"/> <br />
+
+
+@code {
+    Product product = new()
+        {
+            Id = 1,
+            Name = "Product 1",
+            IsActive = false,
+            Price = 100
+        };
+
+}
