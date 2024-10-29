@@ -1,36 +1,50 @@
 ﻿@page "/BindProperties"
 @using BlazorGuide.Models
 
-<h3> Product - Data Binding</h3>
-Name : @product.Name <br />
-IsActive : @product.IsActive <br />
-Price : @product.Price <br />
-This Product is: @(product.IsActive? "Active" : "InActive") <br />
+<div class="row">
+    <div class="col-6 border p-3">
+        <h3 class="text-primary"> Product PlayGround</h3>
+        <hr />
 
-IsActive : <input type="checkbox" @bind-value="@product.IsActive" /> <br />
+        IsActive : <input type="checkbox" @bind-value="@product.IsActive" /> <br />
 
-Input Price: <input type="number"  @bind-value="@product.Price"  @bind-value:event="oninput"/> <br />
+        Input Price: <input type="number" @bind-value="@product.Price" @bind-value:event="oninput" /> <br />
 
-<br />
-<br />
+        <br />
+        <br />
 
-Product Properties
+        Product Properties
 
-<select @bind="selectedProp">
-    @foreach (var prop in product.ProductProperty)
-    {
-        <option value="@prop.Key">@prop.Key</option>
-    }
-</select>
-<br />
-<br />
+        <select @bind="selectedProp">
+            @foreach (var prop in product.ProductProperty)
+            {
+                <option value="@prop.Key">@prop.Key</option>
+            }
+        </select>
+    </div>
 
-Selected Properties: @selectedProp
+    <div class="col-6 border p-3">
+        <h3 class="text-primary"> Product Summary</h3>
+        <hr />
+        Name : @product.Name <br />
+        IsActive : @product.IsActive <br />
+        Price : @product.Price <br />
+        This Product is: @(product.IsActive ? "Active" : "InActive") <br />
 
-@if (!string.IsNullOrEmpty(selectedProp))
-{
-    <p>Selected Value: @product.ProductProperty.FirstOrDefault(u=>u.Key==selectedProp).Value</p>
-}
+
+        <br />
+        <br />
+
+        Selected Properties: @selectedProp
+
+        @if (!string.IsNullOrEmpty(selectedProp))
+        {
+            <p>Selected Value: @product.ProductProperty.FirstOrDefault(u => u.Key == selectedProp).Value</p>
+        }
+    </div>
+</div>
+
+
 
 
 @code {
