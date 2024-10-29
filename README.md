@@ -4,7 +4,7 @@
 
 <br/>
 
-![Programming logos](https://raw.githubusercontent.com/jamezmca/learn-to-code/main/assets/logos.png)
+![Programming logos](https://miro.medium.com/v2/resize:fit:755/0*tg5JhQ4Fuya39XGp.png)
 
 <br/>
 
