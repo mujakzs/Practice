@@ -3,7 +3,11 @@
 ### A simple Blazor Test Project built with ASP.NET 9 to demonstrate the basics of Blazor, including layout, components, and key features. This project serves as a reference point for anyone new to Blazor, providing both structure and practical knowledge to get started with modern web applications.
 
 <br/>
+
+![Programming logos](https://raw.githubusercontent.com/jamezmca/learn-to-code/main/assets/logos.png)
+
 <br/>
+
 
 # 🚀 Project Overview
 
