@@ -5,22 +5,23 @@
 
 <div class="p-2 mt-2">
     <div class="row">
-        @foreach(var prod in ProductList)
+        @foreach (var prod in ProductList)
         {
             <div class="bg-light border col-6">
-                <h4 class="text-secondary">Product - @product.Id</h4>
+                <h4 class="text-secondary">Product - @prod.Id</h4>
                 Name - @prod.Name <br />
                 Show Properties : <input type="checkbox" @bind="@prod.IsActive" />
 
-                @if(prod.IsActive)
+                @if (prod.IsActive)
                 {
-                    @foreach(var prodProp in prod.ProductProperty)
+                    @foreach (var prodProp in prod.ProductProperty)
                     {
                         <p>@prodProp.Key - @prodProp.Value</p>
                     }
                 }
                 <br />
-                <input type="button" class="btn btn-danger" style="width: 100px" value="Delete" />
+                <input type="button" class="btn btn-danger" style="width: 100px" value="Delete"
+                       @onclick="()=>Delete(prod.Id)" />
             </div>
 
         }
@@ -28,23 +29,15 @@
 </div>
 
 @code {
-
-
-    Product product = new()
+    //Event Call Back
+    private void Delete(int productId)
+    {                                        /*condition for finding item*/
+        var prod = ProductList.FirstOrDefault(u => u.Id == productId); //Searches ProductList for the first product whose Id matches productId. If no match is found, prod will be null.
+        if (prod != null) // checks if a product was found.  null = (no value or no object)
         {
-            Id = 1,
-            Name = "Product 1",
-            IsActive = false,
-            Price = 100,
-            ProductProperty = new List<ProductProperties>()
-            {
-                new ProductProperties {Id = 1, Key="Color", Value="Red"},
-                new ProductProperties {Id = 2, Key="Size", Value="20oz"},
-                new ProductProperties {Id = 1, Key="Flavor", Value="Rose"},
-            }
-        };
-
-
+            ProductList.Remove(prod); //removes that product from the list.
+        }
+    }
 
     List<Product> ProductList = new();
 
@@ -78,6 +71,8 @@
             }
             });
     }
+
+
 
 }
 
