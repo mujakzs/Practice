@@ -20,8 +20,7 @@
                     }
                 }
                 <br />
-                <input type="button" class="btn btn-danger" style="width: 100px" value="Delete"
-                       @onclick="()=>Delete(prod.Id)" />
+                <_DeleteButtonComponent ProductID="@prod.Id"></_DeleteButtonComponent>
             </div>
 
         }
@@ -29,15 +28,8 @@
 </div>
 
 @code {
-    //Event Call Back
-    private void Delete(int productId)
-    {                                        /*condition for finding item*/
-        var prod = ProductList.FirstOrDefault(u => u.Id == productId); //Searches ProductList for the first product whose Id matches productId. If no match is found, prod will be null.
-        if (prod != null) // checks if a product was found.  null = (no value or no object)
-        {
-            ProductList.Remove(prod); //removes that product from the list.
-        }
-    }
+    
+    
 
     List<Product> ProductList = new();
 
