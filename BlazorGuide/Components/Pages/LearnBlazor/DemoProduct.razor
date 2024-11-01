@@ -4,18 +4,26 @@
 <h3 class="text-primary">DemoProduct</h3>
 
 <p>Favorite Count : @FavoriteCount</p>
+<br />
+<p>Selected Product: @SelectedProduct</p>
 
 <div class="p-2 mt-2">
     <div class="row">
         @foreach (var prod in ProductList)
         {
-            <_IndividualProduct Product="prod" OnFavoriteUpdate="FavoriteCountChange"></_IndividualProduct>
+            <_IndividualProduct 
+            Product="prod" 
+            OnFavoriteUpdate="FavoriteCountChange"
+            OnProductIsSelected="UpdateSelectedProduct">
+            </_IndividualProduct>
         }
     </div>
 </div>
 
 @code {
     public int FavoriteCount { get; set; } = 0;
+
+    public string SelectedProduct { get; set; } = string.Empty;
 
     List<Product> ProductList = new();
 
@@ -60,6 +68,11 @@
         {
             FavoriteCount--;
         }
+    }
+
+    protected void UpdateSelectedProduct (string productName)
+    {
+        SelectedProduct = productName;
     }
 
 
