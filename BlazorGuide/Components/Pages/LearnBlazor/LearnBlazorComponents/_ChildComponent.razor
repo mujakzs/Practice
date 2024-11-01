@@ -10,15 +10,28 @@
             @ChildContent
         </div>
     }
-   
+
+    <br />
+
+    <button class="btn btn-danger" @onclick="OnButtonClick">
+        Click Me
+    </button>
+
+    <br />
+
 </div>
 
 @code {
+
+    [Parameter]
+    public EventCallback OnButtonClick { get; set; }
 
     [Parameter]
     public string? Title { get; set; }
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    
 
 }
