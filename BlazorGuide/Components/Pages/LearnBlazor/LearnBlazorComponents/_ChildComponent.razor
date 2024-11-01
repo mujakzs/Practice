@@ -27,6 +27,10 @@
 
     <br />
 
+    <_GrandChildComponent MessageForGrandChild="@MessageForGrandChild"> 
+
+    </_GrandChildComponent>
+
 </div>
 
 @code {
@@ -43,6 +47,7 @@
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
-    
+    [Parameter]
+    public string? MessageForGrandChild { get; set; }
 
 }

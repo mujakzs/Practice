@@ -1,9 +1,16 @@
 ﻿@page "/LearnBlazor/ParentComponent"
 
 <h2>Parent Component</h2>
-<_ChildComponent OnButtonClick="ShowMessage" Title="This Title is Passed as a parameter From Parent Component">
+<_ChildComponent 
+
+
+    OnButtonClick="ShowMessage" 
+    Title="This Title is Passed as a parameter From Parent Component"
+    MessageForGrandChild="This message is passed from the Parent Component to GrandChild">
     <ChildSomeContent>Hello World This Is Andrian Gultiano</ChildSomeContent>
     
+
+
     <ChildContent>
         <p>I love Azment Tamano My Only Wife From Tanuan Manila </p>
     </ChildContent>
@@ -12,9 +19,6 @@
 
 <p>@messageText</p>
 
-<_ChildComponent Title="This Title is Passed as a parameter From Parent Component">
-
-</_ChildComponent>
 
 @code {
     public string messageText = "";
