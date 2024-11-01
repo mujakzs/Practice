@@ -4,7 +4,7 @@
     <div class="alert alert-info">
         @Title
     </div>
-    @if(ChildSomeContent != null)
+    @if (ChildSomeContent != null)
     {
         <div class="alert alert-success">
             @ChildSomeContent
@@ -27,7 +27,7 @@
 
     <br />
 
-    <_GrandChildComponent> 
+    <_GrandChildComponent>
 
     </_GrandChildComponent>
 
@@ -47,6 +47,6 @@
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
-    
+
 
 }

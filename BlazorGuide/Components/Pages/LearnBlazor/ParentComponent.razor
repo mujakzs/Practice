@@ -2,19 +2,21 @@
 
 <h2>Parent Component</h2>
 
-<CascadingValue Value="@MessageForGrandChild">
-    <_ChildComponent 
-    OnButtonClick="ShowMessage" 
-    Title="This Title is Passed as a parameter From Parent Component">
-    <ChildSomeContent>Hello World This Is Andrian Gultiano</ChildSomeContent>
-    
+<CascadingValue Value="@MessageForGrandChild" Name="Message">
+    <CascadingValue Value="@LuckyNumber" Name="LuckyNumber">
+        <_ChildComponent OnButtonClick="ShowMessage"
+                         Title="This Title is Passed as a parameter From Parent Component">
+            <ChildSomeContent>Hello World This Is Andrian Gultiano</ChildSomeContent>
 
 
-    <ChildContent>
-        <p>I love Azmen Tamano My Only Wife From Tanuan Manila </p>
-    </ChildContent>
 
-</_ChildComponent>
+            <ChildContent>
+                <p>I love Azmen Tamano My Only Wife From Tanuan Manila </p>
+            </ChildContent>
+
+        </_ChildComponent>
+    </CascadingValue>
+
 </CascadingValue>
 
 
@@ -24,6 +26,7 @@
 @code {
     public string MessageForGrandChild = "This message is passed from the Parent Component to GrandChild";
     public string messageText = "";
+    public string LuckyNumber = "7";
 
 
     private void ShowMessage()
