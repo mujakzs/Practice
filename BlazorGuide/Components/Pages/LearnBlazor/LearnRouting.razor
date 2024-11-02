@@ -1,0 +1,14 @@
+﻿@page "/learnRouting"
+@page "/learnRouting/{Param1}"
+
+
+<h3>LearnRouting</h3>
+
+<p>Param1 : @Param1</p>
+
+@code {
+    [Parameter]
+    public string? Param1 { get; set; } = "";
+
+}
+ 
