@@ -1,7 +1,8 @@
 ﻿@page "/learnRouting"
-@page "/learnRouting/{Param1}/{Param2}"
-@page "/learnRouting/{Param1}"
+@* @page "/learnRouting/{Param1}/{Param2}" *@
+@* @page "/learnRouting/{Param1}" *@
 @page "/learnBlazor/learnRouting"
+@page "/learnRouting/learnBlazor"
 @page "/learnRouting/catch-all/{*PageParameters}"
 
 
@@ -24,10 +25,10 @@
 <h2 id="targetElement">Hello World</h2>
 
 @code {
-    [Parameter]
+    [SupplyParameterFromQuery(Name ="Param1")]
     public string? Param1 { get; set; }
 
-    [Parameter]
+    [SupplyParameterFromQuery(Name = "Param2")]
     public string? Param2 { get; set; } = "";
 
     [Parameter]
@@ -39,7 +40,7 @@
         var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
         Param1 = query["Param1"];
         Param2 = query["Param2"];
-        _NavigationManager.Refresh(forceReload:true);
+        _NavigationManager.Refresh(forceReload:true);   
     }
 
 
